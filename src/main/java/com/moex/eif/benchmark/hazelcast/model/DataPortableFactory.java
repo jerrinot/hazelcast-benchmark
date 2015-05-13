@@ -7,10 +7,10 @@ class DataPortableFactory implements PortableFactory {
 
   @Override
   public Portable create(int classId) {
-    if (Data.CLASS_ID == classId) {
-      return new Data();
-    }
-
+//    if (Data.CLASS_ID == classId) {
+//      return new Data();
+//    }
+//
     return null;
   }
 }

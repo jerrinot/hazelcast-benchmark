@@ -23,11 +23,14 @@
   </network>
 
   <serialization>
-    <portable-version>0</portable-version>
-    <portable-factories>
-      <portable-factory factory-id="99999">
-        com.moex.eif.benchmark.hazelcast.model.DataPortableFactory
-      </portable-factory>
-    </portable-factories>
+    <!--<portable-version>0</portable-version>-->
+    <!--<portable-factories>-->
+      <!--<portable-factory factory-id="99999">-->
+        <!--com.moex.eif.benchmark.hazelcast.model.DataPortableFactory-->
+      <!--</portable-factory>-->
+    <!--</portable-factories>-->
+    <data-serializable-factories>
+      <data-serializable-factory factory-id="99999">com.moex.eif.benchmark.hazelcast.model.DataIndentifiedSerializableFactory</data-serializable-factory>
+    </data-serializable-factories>
   </serialization>
 </hazelcast-client>
