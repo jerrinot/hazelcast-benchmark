@@ -1,0 +1,16 @@
+# Java
+logs
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# Maven
+target/
+
+# JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws

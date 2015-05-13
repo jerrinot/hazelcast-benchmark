@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hazelcast-client xmlns="http://www.hazelcast.com/schema/client-config"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://www.hazelcast.com/schema/client-config
+                                     http://hazelcast.com/schema/config/hazelcast-client-config-3.4.xsd">
+
+  <group>
+    <name>benchmark</name>
+    <password>wtfishazelcast</password>
+  </group>
+
+  <properties>
+    <property name="hazelcast.logging.type">slf4j</property>
+  </properties>
+
+  <network>
+    <cluster-members>
+      <address>127.0.0.1</address>
+    </cluster-members>
+    <smart-routing>true</smart-routing>
+    <redo-operation>true</redo-operation>
+  </network>
+
+  <serialization>
+    <portable-version>0</portable-version>
+    <portable-factories>
+      <portable-factory factory-id="99999">
+        com.moex.eif.benchmark.hazelcast.model.DataPortableFactory
+      </portable-factory>
+    </portable-factories>
+  </serialization>
+</hazelcast-client>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast xmlns="http://www.hazelcast.com/schema/config"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.hazelcast.com/schema/config
+                               http://hazelcast.com/schema/config/hazelcast-config-3.4.xsd">
+
+  <license-key>HOAKEPDNCM95702X150QU1VW8T0014</license-key>
+
+  <group>
+    <name>benchmark</name>
+    <password>wtfishazelcast</password>
+  </group>
+
+  <properties>
+    <property name="hazelcast.logging.type">slf4j</property>
+  </properties>
+
+  <network>
+    <port port-count="200" auto-increment="true">5701</port>
+    <join>
+      <multicast enabled="false"/>
+      <tcp-ip enabled="true">
+        <interface>127.0.0.1</interface>
+      </tcp-ip>
+    </join>
+  </network>
+
+  <map name="distributedWithBackup*">
+    <in-memory-format>BINARY</in-memory-format>
+    <backup-count>1</backup-count>
+    <async-backup-count>0</async-backup-count>
+    <indexes>
+      <index ordered="true">stringVal</index>
+      <index ordered="true">intVal</index>
+    </indexes>
+  </map>
+
+  <serialization>
+    <portable-version>0</portable-version>
+    <portable-factories>
+      <portable-factory factory-id="99999">
+        com.moex.eif.benchmark.hazelcast.model.DataPortableFactory
+      </portable-factory>
+    </portable-factories>
+  </serialization>
+
+  <management-center enabled="false">http://localhost:8080/mancenter</management-center>
+</hazelcast>
