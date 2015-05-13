@@ -13,7 +13,7 @@ public class Main {
         .setTotalObjects(4_000_000)
         .setResultSetSize(10_000)
         .setWarmupIterations(10)
-        .setIterations(1000);
+        .setIterations(100);
 
     new BenchmarkRunner()
         .addBenchmark(new GetByPredicate())

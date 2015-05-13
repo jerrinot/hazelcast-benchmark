@@ -5,7 +5,6 @@ import com.hazelcast.nio.serialization.PortableReader;
 import com.hazelcast.nio.serialization.PortableWriter;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class Data implements Portable {
 
@@ -91,18 +90,19 @@ public class Data implements Portable {
     if (this == o) {
       return true;
     }
-
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
 
     Data data = (Data) o;
-    return Objects.equals(key, data.key);
+
+    return !(key != null ? !key.equals(data.key) : data.key != null);
+
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key);
+    return key != null ? key.hashCode() : 0;
   }
 
   @Override
