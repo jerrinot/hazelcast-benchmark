@@ -10,14 +10,14 @@ public class Main {
 
   public static void main(String[] args) throws Exception {
     BenchmarkRunnerConfig config = new BenchmarkRunnerConfig()
-        .setTotalObjects(4_000_000)
+        .setTotalObjects(1_000_000)
         .setResultSetSize(10_000)
         .setWarmupIterations(10)
         .setIterations(100);
 
     new BenchmarkRunner()
         .addBenchmark(new GetByPredicate())
-        .addBenchmark(new GetDistinctValues())
+//        .addBenchmark(new GetDistinctValues())
         .run(config);
   }
 }
